@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ameer Facts</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to bottom right, #e1dfff, #fbe1ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      color: #4b2b63;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      width: 90%;
+      max-width: 1100px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 30px;
+      padding: 40px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.1);
+      backdrop-filter: blur(12px);
+    }
+
+    .left {
+      font-size: 100px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .right {
+      max-height: 500px;
+      overflow-y: auto;
+      padding-right: 15px;
+    }
+
+    .header {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #7a3993;
+    }
+
+    .fact {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      background: rgba(255, 255, 255, 0.5);
+      padding: 12px 16px;
+      border-radius: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .emoji-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .emoji-bg span {
+      position: absolute;
+      font-size: 24px;
+      animation: floatEmoji 10s linear infinite;
+      opacity: 0.3;
+    }
+
+    @keyframes floatEmoji {
+      from {
+        transform: translateY(100vh) rotate(0deg);
+      }
+      to {
+        transform: translateY(-150vh) rotate(360deg);
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+      .container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px 20px;
+      }
+
+      .left {
+        font-size: 80px;
+      }
+
+      .right {
+        max-height: 400px;
+      }
+
+      .header {
+        font-size: 1.5rem;
+      }
+
+      .fact {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="emoji-bg" id="emoji-bg"></div>
+
+  <div class="container">
+    <div class="left">🧠❤️</div>
+    <div class="right">
+      <div class="header">Here’s everything I know about the boy I adore:</div>
+      <div class="fact">1. His smile makes my whole day do a backflip.</div>
+      <div class="fact">2. He says “AAAAAAAA” like it’s a love language.</div>
+      <div class="fact">3. He somehow knows exactly how I’m feeling, even through a screen.</div>
+      <div class="fact">4. His voice makes everything feel softer.</div>
+      <div class="fact">5. He looks so good even when he’s doing absolutely nothing.</div>
+      <div class="fact">6. He’ll never admit it, but he’s a total cute baby deep down.</div>
+      <div class="fact">7. He gets this cute lil attitude when he’s sleepy 😭</div>
+      <div class="fact">8. He’s the type to tease you and then kiss your forehead after (I need to experience this).</div>
+      <div class="fact">9. He makes me laugh like an idiot at 2AM.</div>
+      <div class="fact">10. I remember the way he phrases things when he’s extra excited.</div>
+      <div class="fact">11. His mind? Amazing. His heart? Softer than clouds.</div>
+      <div class="fact">12. I love the way he cares, even when he tries to act chill.</div>
+      <div class="fact">13. Sometimes I just stop and think… “I really get to love him.”</div>
+    </div>
+  </div>
+
+  <script>
+    const emojiBG = document.getElementById("emoji-bg");
+    const emojis = ["🧠", "💖", "✨", "❤️", "🚗", "🥹", "💭"];
+    for (let i = 0; i < 50; i++) {
+      const span = document.createElement("span");
+      span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      span.style.left = Math.random() * 100 + "vw";
+      span.style.top = Math.random() * 100 + "vh";
+      span.style.fontSize = (Math.random() * 20 + 20) + "px";
+      span.style.animationDuration = (Math.random() * 10 + 8) + "s";
+      emojiBG.appendChild(span);
+    }
+  </script>
+</body>
+</html>
